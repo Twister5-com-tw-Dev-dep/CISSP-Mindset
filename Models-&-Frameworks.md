@@ -66,9 +66,10 @@ graph TB
     B --> B3[Lipner 實施]
 
     C --> C1[Clark-Wilson]
-    C --> C2[Brewer-Nash (中國牆)]
+    C --> C2[Brewer-Nash:Chinese Wall]
     C --> C3[Gram-Denning]
     C --> C4[Harrison-Ruzzo-Ullman]
+
 ```
 
 ### 基於格的模型 (Lattice-based Models)
