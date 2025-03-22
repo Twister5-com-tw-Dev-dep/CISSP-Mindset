@@ -22,6 +22,24 @@
 *   **安全架構 (Security Architecture)** 保護和確保架構中每個組件安全 。
 *   **企業安全架構 (Enterprise Security Architecture)** 如何保護企業的所有組件，包括人員、流程、系統等等 。
 
+```mermaid
+  graph TD
+    A[企業安全架構模型] --> B[Zachman 框架]
+    A --> C[SABSA]
+    A --> D[TOGAF]
+
+    B --> B1[定義二維表格]
+    B --> B2[Who、What、When、Where、Why、How]
+    B --> B3[分解企業為組件]
+
+    C --> C1[與 Zachman 結構相似]
+    C --> C2[基於風險驅動]
+    C --> C3[源於業務安全需求]
+
+    D --> D1[協助分解組織]
+    D --> D2[建構安全性進入每個組件]
+```
+
 三個主要的企業安全架構 ：
 
 *   **Zachman 框架：** 它定義了一個**二維表格**，提供了一種結構化的方式來定義企業，從而將其分解為組件 。
@@ -37,11 +55,37 @@
 ## 安全模型
 主要有兩個分組：**基於格 (Lattice-based)** 和 **基於規則 (Rule-based)** 。
 
+
+```mermaid
+graph TB
+    A[安全模型] --> B[基於格 Lattice-based]
+    A --> C[基於規則 Rule-based]
+
+    B --> B1[Bell-LaPadula]
+    B --> B2[Biba]
+    B --> B3[Lipner 實施]
+
+    C --> C1[Clark-Wilson]
+    C --> C2[Brewer-Nash (中國牆)]
+    C --> C3[Gram-Denning]
+    C --> C4[Harrison-Ruzzo-Ullman]
+```
+
 ### 基於格的模型 (Lattice-based Models)
 基於格的模型本質上是指**分層** 。
 可以定義機密性或完整性的層級，然後定義關於在層級之間可以讀取或寫入內容的規則，以維持機密性(C)或完整性 (I)。
 
 *   **Bell-LaPadula 模型：** 這是一個**僅關注機密性**的模型 。
+
+```mermaid
+graph LR
+    A[Bell-LaPadula 模型] --> B[機密性]
+    B --> C[Simple Security Property<br>只能向下讀取]
+    B --> D[* Property<br>只能向上寫入]
+    B --> E[Strong * Property<br>僅限自身層級讀寫]
+```
+
+  
 *   因為它是一個基於格或分層的模型，所以需要定義不同層級的機密性，從較低的機密性到較高的機密性 。
 *   該模型定義了控制主體（subject,人員或進程）在這些層級之間可以進行哪些操作的規則 。
     *   **簡單安全屬性 (Simple Security Property)：** 為了維持機密性，**只能讀取自身層級及以下的資訊** 。只能向下讀取 。
@@ -50,6 +94,14 @@
     *   總而言之，Bell-LaPadula 模型完全關於機密性：**只能向下讀取，向上寫入，並在自身層級重寫** 。
 
 *   **Biba 模型：** 這完全關於**完整性**
+```mermaid
+graph LR
+    A[Biba 模型] --> B[完整性]
+    B --> C[Simple Integrity Property<br>只能向上讀取]
+    B --> D[* Integrity Property<br>只能向下寫入]
+    B --> E[Invocation Property<br>（略）]
+```
+  
 *   請記住 Biba 中的「I」代表完整性 (Integrity) 。
 *   同樣，因為它是一個基於層的模型，所以需要定義層級，但在 Biba 中，這些是**完整性的層級：低、中、高** 。
 *   該模型定義了控制主體在層級之間可以進行哪些操作以維持完整性的規則 。
@@ -74,6 +126,21 @@
     2.  您必須有**職責分離 (separation of duties)**。
     3.  您必須有**存取三元組 (access triple)：主體、程式和客體** 。
 
+```mermaid
+graph TD
+    A[Clark-Wilson 模型] --> B[完整性目標]
+    A --> C[完整性規則]
+
+    B --> B1[防止未授權更改]
+    B --> B2[防止授權者錯誤更改]
+    B --> B3[系統一致性]
+
+    C --> C1[良好形式的事務]
+    C --> C2[職責分離]
+    C --> C3[Access Triple（主體、程式、客體）]
+```
+
+
 *   **Brewer-Nash 模型 (也稱為中國牆模型)：** 它有一個目標：**防止利益衝突** [10]。
 
 *   還有一些其他的模型，只需要將其識別為基於規則的模型即可 。
@@ -83,6 +150,22 @@
 ## 安全設計原則
 **其他安全設計原則**。這些原則可以幫助我們安全地設計、實施和運營系統 。
 此介紹六個原則，這些原則在其他md中有更詳細的討論，因此我將提供非常簡短的解釋。
+```mermaid
+graph TD
+    A[安全設計原則] --> B[威脅建模 Threat Modeling]
+    A --> C[最小權限 Least Privilege]
+    A --> D[縱深防禦 Defense in Depth]
+    A --> E[安全預設 Secure Defaults]
+    A --> F[安全失效 Fail Securely]
+    A --> G[職責分離 Separation of Duties]
+    A --> H[KISS 原則]
+    A --> I[零信任 Zero Trust]
+    A --> J[信任但驗證 Trust but Verify]
+    A --> K[內建安全性 Bake Security In]
+    A --> L[隱私權設計 Privacy by Design]
+    A --> M[責任共擔 Shared Responsibility]
+```
+
 
 *   **威脅建模 (Threat Modeling)：** 是一個系統化的過程，用於識別、列舉和優先排序給定系統中的威脅。威脅建模有助於我們識別系統的所有相關威脅 。相關定義在風險管理篇章（領域 1）威脅建模框架中。
 *   **最小權限 (Least Privilege)：** 是將使用者的操作限制在其執行角色所需的那些操作的原則 。
@@ -100,6 +183,21 @@
 ## 主要安全框架
 現在我們來談談考試中您需要了解的主要**安全框架** 。您需要對其中一個主要框架有相當的了解，那就是 **ISO 27001**。它是世界上**最廣泛使用的安全框架** 。ISO 27001 為 **ISMS (資訊安全管理系統)** 提供了最佳實踐建議 。ISO 在標準的所謂 Annex A 中定義了跨越 14 個類別的 **114 個控制項** 。這些控制項定義了在一個良好運作的安全計畫中您應該採取的**所有最佳實踐**，從最高層的正確安全治理和安全策略，一直到人員培訓、資產管理、存取控制、密碼學、物理安全、網路安全，以及擁有合規職能 。重要的是要記住，ISO 27001 定義了控制項，因此**您可以通過 ISO 27001 認證** 。
 
+
+```mermaid
+graph TD
+    A[主要安全框架] --> B[ISO 27001]
+    A --> C[ISO 27002]
+    A --> D[NIST 800-53]
+    A --> E[COBIT]
+    A --> F[ITIL]
+    A --> G[HIPAA]
+    A --> H[SOX]
+    A --> I[FedRAMP]
+    A --> J[FISMA]
+    A --> K[Cyber Kill Chain]
+```
+
 另一方面，**ISO 27002** 提供了**資訊安全控制的實務守則** 。換句話說，它是 27001 中控制項的實施指南 。不能通過 27002 自我認證，它只是一個指導文件 。但是，您可以通過其他第三方 27001 認證 。
 
 現在我要談到的接下來幾個安全控制框架，您不需要成為任何一個框架的專家，只需要知道它們主要用於什麼以及主要關注什麼 [16]。
@@ -112,6 +210,7 @@
 *   **FedRAMP (Federal Risk and Authorization Management Program)** 為雲端產品和服務的**安全評估、授權和持續監控**提供了一種標準化方法 。任何想要使用雲端服務的美國聯邦政府實體，這些雲端服務都必須符合 FedRAMP 標準或獲得 FedRAMP 批准 。
 *   **FISMA (Federal Information Security Modernization Act)** 定義了美國聯邦政府機構和承包商的安全要求 。FISMA 要求每個美國聯邦政府機構制定、記錄和實施**全機構範圍的資訊安全計畫** 。
 *   我將在這裡討論的最後一個框架是 **網路殺傷鏈 (Cyber Kill Chain)**，有時也稱為網路攻擊鏈 。網路殺傷鏈的基本思想是它定義了常見網路攻擊的七個階段，因此這些階段是鏈條中的環節，安全團隊可以在這些環節阻止、偵測或攔截攻擊者 。**打破鏈條中的一個環節，就沒有網路攻擊** 。您越早打破鏈條，攻擊對組織造成的損害就越小 。網路殺傷鏈的七個階段是：
+  
     1.  **偵察 (Reconnaissance)**
     2.  **武器化 (Weaponization)**
     3.  **傳遞 (Delivery)**
@@ -120,5 +219,16 @@
     6.  **命令與控制 (Command and Control)**
     7.  **行動 (Actions)**
     請確保您了解這七個階段的順序以及每個階段的高階內容 。
+
+```mermaid
+graph TD
+    A[Cyber Kill Chain] --> B[偵察 Reconnaissance]
+    B --> C[武器化 Weaponization]
+    C --> D[傳遞 Delivery]
+    D --> E[漏洞利用 Exploit]
+    E --> F[安裝 Installation]
+    F --> G[命令與控制 Command & Control]
+    G --> H[行動 Actions on Objectives]
+```
 
 
