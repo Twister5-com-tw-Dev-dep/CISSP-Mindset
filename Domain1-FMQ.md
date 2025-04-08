@@ -136,3 +136,86 @@ mindmap
         - 決定優先控制對象
 
 ```
+
+```mermaid
+graph TD
+  A[InfoSec Concepts]
+
+  A --> B1[SLR]
+  B1 --> B1a[定義：SLA報告]
+  B1 --> B1b[指標：可用性/響應時間]
+  B1 --> B1c[用途：績效與合約依據]
+
+  A --> B2[Pasta Threat]
+  B2 --> B2a[步驟1：定義業務]
+  B2 --> B2b[步驟2：技術範圍]
+  B2 --> B2c[步驟3：應用分解]
+  B2 --> B2d[步驟4：威脅分析]
+  B2 --> B2e[步驟5：弱點分析]
+  B2 --> B2f[步驟6：模擬攻擊]
+  B2 --> B2g[步驟7：風險與緩解]
+
+  A --> B3[STRIDE]
+  B3 --> B3a[Spoofing：偽冒身份]
+  B3 --> B3b[Tampering：篡改資料]
+  B3 --> B3c[Repudiation：否認操作]
+  B3 --> B3d[Info Disclosure：洩漏資訊]
+  B3 --> B3e[DoS：阻斷服務]
+  B3 --> B3f[Privilege Escalation：提權]
+
+  A --> B4[DREAD]
+  B4 --> B4a[Damage Potential]
+  B4 --> B4b[Reproducibility]
+  B4 --> B4c[Exploitability]
+  B4 --> B4d[Affected Users]
+  B4 --> B4e[Discoverability]
+
+  A --> B5[Trike]
+  B5 --> B5a[角色與資產分析]
+  B5 --> B5b[定義控制政策]
+  B5 --> B5c[風險與權限對照分析]
+
+  A --> B6[Enumeration]
+  B6 --> B6a[工具：nmap/netcat]
+  B6 --> B6b[查詢：DNS/LDAP]
+  B6 --> B6c[收集：使用者/服務版本]
+
+  A --> B7[NIST 800-37]
+  B7 --> B7a[分類系統]
+  B7 --> B7b[選擇控制]
+  B7 --> B7c[實施控制]
+  B7 --> B7d[評估控制]
+  B7 --> B7e[授權系統]
+  B7 --> B7f[持續監控]
+
+  A --> B8[Compensating Control]
+  B8 --> B8a[替代控制]
+  B8 --> B8b[例：無MFA→用異常偵測]
+
+  A --> B9[Directive Control]
+  B9 --> B9a[類型：政策/SOP]
+  B9 --> B9b[用途：行為引導]
+
+  A --> B10[Risk Analysis]
+  B10 --> B10a[定性分析]
+  B10 --> B10b[定量分析]
+  B10 --> B10c[要素：資產、威脅、弱點]
+
+  A --> B11[Delphi Technique]
+  B11 --> B11a[專家意見迴圈]
+  B11 --> B11b[匿名問卷、多輪整合]
+
+  A --> B12[Monte Carlo Simulation]
+  B12 --> B12a[隨機模擬結果]
+  B12 --> B12b[預估風險概率範圍]
+
+  A --> B13[Fault Tree Analysis]
+  B13 --> B13a[自上而下追因]
+  B13 --> B13b[邏輯閘：AND/OR]
+
+  A --> B14[Risk Scoring]
+  B14 --> B14a[公式：威脅×弱點×資產]
+  B14 --> B14b[分類：低/中/高]
+
+
+```
