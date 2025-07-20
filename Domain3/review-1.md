@@ -1,4 +1,4 @@
-防# CISSP Domain 3 深度學習教材 (個人化重點加強版)
+#CISSP Domain 3 深度學習教材 (個人化重點加強版)
 
 範疇一：虛擬化安全 (Virtualization Security)
 虛擬化是現代 IT 的基礎，也是 Domain 3 的高頻考點。考試的重點不僅在於技術名詞，更在於對不同技術安全特性與風險權衡的理解。
