@@ -1,0 +1,33 @@
+{
+  "name": "cissp-mindset",
+  "version": "1.0.0",
+  "description": "CCSP 雲端安全認證學習資源網站",
+  "main": "index.js",
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "serve-drafts": "bundle exec jekyll serve --drafts",
+    "setup": "chmod +x scripts/setup-jekyll.sh && ./scripts/setup-jekyll.sh",
+    "deploy": "npm run build && git add . && git commit -m 'Update site' && git push"
+  },
+  "keywords": [
+    "ccsp",
+    "cloud-security",
+    "certification",
+    "study-guide",
+    "jekyll"
+  ],
+  "author": "CISSP-Mindset Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/cissp-mindset.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/cissp-mindset/issues"
+  },
+  "homepage": "https://your-username.github.io/cissp-mindset"
+}
