@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
+  push:
+    branches: [main, master]
   pull_request:
     branches: [main, master]
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -16,7 +17,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"
+          ruby-version: "3.1"
           bundler-cache: true
 
       - name: Setup Node.js
@@ -27,8 +28,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install -g @11ty/eleventy
           bundle install
+          npm install -g @11ty/eleventy
 
       - name: Build site
         run: |
@@ -38,6 +39,6 @@ jobs:
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.pages_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           force_orphan: true
