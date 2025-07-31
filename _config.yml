@@ -1,0 +1,106 @@
+# Site settings
+title: "CISSP-Mindset"
+description: "CCSP 雲端安全認證學習資源與複習指南"
+author: "CISSP-Mindset Team"
+email: "contact@cissp-mindset.com"
+url: "https://cissp-mindset.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+relative_links:
+  enabled: true
+  collections: true
+
+# Collections
+collections:
+  ccsp:
+    output: true
+    permalink: /ccsp/:name/
+  domain3:
+    output: true
+    permalink: /domain3/:name/
+  domain5:
+    output: true
+    permalink: /domain5/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "ccsp"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "domain3"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "domain5"
+    values:
+      layout: "page"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-include-cache
+
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-category
+    tag: archive-tag
+  permalinks:
+    category: "/category/:name/"
+    tag: "/tag/:name/"
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .github/
+  - README.md
+  - .gitignore
+  - .DS_Store
+
+# Include
+include:
+  - _pages
+  - _posts
+  - _ccsp
+  - _domain3
+  - _domain5
+
+# Kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+      start_line: 1
