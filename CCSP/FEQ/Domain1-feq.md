@@ -47,12 +47,10 @@
 ```mermaid
 graph TD
     subgraph 圖例
-        direction LR
         A[客戶管理] --> B[供應商管理]
     end
 
-    subgraph IaaS (最高控制權)
-        direction TB
+    subgraph IaaS
         C[應用程式]
         D[資料]
         E[執行環境]
@@ -62,12 +60,18 @@ graph TD
         I((儲存))
         J((伺服器))
         K((虛擬化))
-        C & D & E & F & G --- A
-        H & I & J & K --- B
+        C --- A
+        D --- A
+        E --- A
+        F --- A
+        G --- A
+        H --- B
+        I --- B
+        J --- B
+        K --- B
     end
 
-    subgraph PaaS (中度控制權)
-        direction TB
+    subgraph PaaS
         L[應用程式]
         M[資料]
         N((執行環境))
@@ -77,12 +81,18 @@ graph TD
         R((儲存))
         S((伺服器))
         T((虛擬化))
-        L & M --- A
-        N & O & P & Q & R & S & T --- B
+        L --- A
+        M --- A
+        N --- B
+        O --- B
+        P --- B
+        Q --- B
+        R --- B
+        S --- B
+        T --- B
     end
 
-    subgraph SaaS (最低控制權)
-        direction TB
+    subgraph SaaS
         U((所有項目皆由供應商管理))
         U --- B
     end
@@ -123,23 +133,23 @@ graph TD
 ```mermaid
 graph TD
     subgraph "基礎標準"
-        A[ISO/IEC 27001 <br/><i>ISMS 資訊安全管理系統要求</i>]
-        B[ISO/IEC 27002 <br/><i>資訊安全控制行為準則</i>]
+        A[ISO/IEC 27001<br/>ISMS 資訊安全管理系統要求]
+        B[ISO/IEC 27002<br/>資訊安全控制行為準則]
     end
 
     subgraph "雲端特定標準"
-        C[ISO/IEC 27017 <br/><i>雲端特定控制措施指引</i>]
+        C[ISO/IEC 27017<br/>雲端特定控制措施指引]
     end
 
     subgraph "框架 / 計畫"
-        D[CSA 雲端控制矩陣 (CCM) <br/><i>將控制項對應至多個標準</i>]
-        E[FedRAMP <br/><i>美國政府專用計畫</i>]
+        D[CSA 雲端控制矩陣 CCM<br/>將控制項對應至多個標準]
+        E[FedRAMP<br/>美國政府專用計畫]
     end
 
     A --> B
     B --> C
-    C -- 對應至 --> D
-    A -- 對應至 --> D
+    C --> D
+    A --> D
 ```
 
 ## 主題三：雲端部署與風險管理
