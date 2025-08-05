@@ -256,21 +256,21 @@ graph TD
 
 ```mermaid
 graph TD
-    subgraph MFA 流程
-        A[使用者] --> B{需要輸入/輸出};
+    subgraph "MFA 流程"
+        A[使用者] --> B[需要輸入/輸出]
     end
 
-    subgraph 多樣化的 IoT 設備
-        C[智慧手錶<br>(小螢幕, 無鍵盤)]
-        D[工業感測器<br>(無螢幕, 無鍵盤)]
-        E[智慧冰箱<br>(大螢幕, 觸控)]
+    subgraph "多樣化的 IoT 設備"
+        C[智慧手錶<br/>小螢幕 無鍵盤]
+        D[工業感測器<br/>無螢幕 無鍵盤]
+        E[智慧冰箱<br/>大螢幕 觸控]
     end
 
     B -.-> C
     B -.-> D
     B --> E
 
-    F((缺乏統一的 I/O 介面<br>是根本性挑戰))
+    F[缺乏統一的 I/O 介面<br/>是根本性挑戰]
     style F fill:#ffc, stroke:#333, stroke-width:2px
 ```
 

@@ -276,7 +276,7 @@ graph TD
     end
 
     L1 --> L2 --> L3 --> L4
-    
+
     subgraph "關鍵差異"
         Level_2_3[等級 2 到 3]
         Level_3_4[等級 3 到 4]
