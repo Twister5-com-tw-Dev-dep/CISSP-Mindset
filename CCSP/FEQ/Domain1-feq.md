@@ -179,20 +179,21 @@ graph TD
 ```mermaid
 graph TD
     subgraph "組織的 IT 資產"
-        subgraph "本地資料中心 (私有雲)"
-            style A fill:#FFB3BA,stroke:#333,stroke-width:2px
-            A[敏感客戶資料 <br/> (需遵守嚴格的資料主權/落地要求)]
+        subgraph "本地資料中心 私有雲"
+            A[敏感客戶資料<br/>需遵守嚴格的資料主權要求]
             B[核心金融系統]
         end
         subgraph "公有雲"
-            style C fill:#BAFFC9,stroke:#333,stroke-width:2px
             C[公開網站]
             D[非敏感資料分析]
-            E[開發/測試環境]
+            E[開發測試環境]
         end
     end
 
-    C -- 安全的 API 呼叫 --> B
+    C --> B
+
+    style A fill:#FFB3BA,stroke:#333,stroke-width:2px
+    style C fill:#BAFFC9,stroke:#333,stroke-width:2px
 ```
 
 ### 問題 27/28: 應對影子 IT 的最有效策略
@@ -267,16 +268,18 @@ ISO 31000 強調風險管理應是動態、迭代且能應對變化的。大量 
 
 ```mermaid
 graph TD
-    subgraph FIPS 140-2 安全等級
-        L1[等級 1: 基礎安全 <br/> 無特殊物理安全機制]
-        L2[等級 2: 防竄改證據 <br/> 顯示物理入侵的證據]
-        L3[等級 3: 防竄改設計 <br/> 主動回應入侵 (例如金鑰歸零)]
-        L4[等級 4: 最高安全 <br/> 增加對抗環境攻擊的保護]
+    subgraph "FIPS 140-2 安全等級"
+        L1[等級 1: 基礎安全<br/>無特殊物理安全機制]
+        L2[等級 2: 防竄改證據<br/>顯示物理入侵的證據]
+        L3[等級 3: 防竄改設計<br/>主動回應入侵 例如金鑰歸零]
+        L4[等級 4: 最高安全<br/>增加對抗環境攻擊的保護]
     end
 
     L1 --> L2 --> L3 --> L4
+    
     subgraph "關鍵差異"
-        Level_2_3{"等級 2 -> 3"} -- "從被動證據演進為主動回應" --> Level_3_4{"等級 3 -> 4"}
-        Level_3_4 -- "增加環境攻擊防護"
+        Level_2_3[等級 2 到 3]
+        Level_3_4[等級 3 到 4]
+        Level_2_3 --> Level_3_4
     end
 ```
