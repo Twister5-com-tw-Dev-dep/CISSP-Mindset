@@ -29,14 +29,14 @@ Domain 4 (Cloud Application Security) 的考點高度集中，可歸納為以下
 
 ```mermaid
 graph TD
-    subgraph 地端環境 (On-Premises)
-        A[伺服器 A] --內部通訊協定--> B[伺服器 B]
+    subgraph "地端環境 On-Premises"
+        A[伺服器 A] --> B[伺服器 B]
     end
 
-    subgraph 混合雲環境 (Hybrid Cloud)
-        C[地端應用] --"透過 API (主要攻擊面)"--> D[雲端服務 IaaS/PaaS]
-        D --"透過 API"--> E[第三方SaaS服務]
-        F[使用者] --"透過 API"--> D
+    subgraph "混合雲環境 Hybrid Cloud"
+        C[地端應用] --> D[雲端服務 IaaS/PaaS]
+        D --> E[第三方SaaS服務]
+        F[使用者] --> D
     end
 
     style D fill:#f9f,stroke:#333,stroke-width:2px
@@ -54,16 +54,17 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph 傳統瀑布式開發 (Waterfall)
-        A(開發) --> B(測試) --> C(部署) --> D{發現漏洞?}
-        style D fill:#c00,stroke:#fff,stroke-width:2px
+    subgraph "傳統瀑布式開發 Waterfall"
+        A[開發] --> B[測試] --> C[部署] --> D[發現漏洞?]
     end
 
-    subgraph DevSecOps 流程
-        E(Plan) --> F(Code & Secure) --> G(Build & Secure) --> H(Test & Secure) --> I(Deploy & Secure) --> J(Monitor & Secure)
-        F -- 自動化安全掃描 --> G
-        H -- 動態/靜態測試 --> I
+    subgraph "DevSecOps 流程"
+        E[Plan] --> F[Code & Secure] --> G[Build & Secure] --> H[Test & Secure] --> I[Deploy & Secure] --> J[Monitor & Secure]
+        F --> G
+        H --> I
     end
+
+    style D fill:#c00,stroke:#fff,stroke-width:2px
 ```
 
 #### 3. 在 DevOps 中整合安全的最大挑戰
@@ -78,13 +79,13 @@ graph LR
 
 ```mermaid
 graph TD
-    A[開發速度 (Velocity)]
-    B[安全性 (Security)]
-    C{DevSecOps 的挑戰}
+    A[開發速度 Velocity]
+    B[安全性 Security]
+    C[DevSecOps 的挑戰]
 
-    A -- "我要快！" --> C
-    B -- "我要穩！" --> C
-    C --> D["如何在不犧牲速度的情況下，<br>將安全無縫整合進來？"]
+    A --> C
+    B --> C
+    C --> D[如何在不犧牲速度的情況下<br/>將安全無縫整合進來]
 
     style D fill:#ffc, stroke:#333, stroke-width:2px
 ```
@@ -111,13 +112,13 @@ graph TD
 
 ```mermaid
 graph TD
-    A[威脅建模] --> B(STRIDE 框架);
-    B --> C(Spoofing - 仿冒);
-    B --> D(Tampering - 竄改);
-    B --> E(Repudiation - 否認);
-    B --> F(Information Disclosure - 資訊洩露);
-    B --> G(Denial of Service - 阻斷服務);
-    B --> H(Elevation of Privilege - 權限提升);
+    A[威脅建模] --> B[STRIDE 框架]
+    B --> C[Spoofing - 仿冒]
+    B --> D[Tampering - 竄改]
+    B --> E[Repudiation - 否認]
+    B --> F[Information Disclosure - 資訊洩露]
+    B --> G[Denial of Service - 阻斷服務]
+    B --> H[Elevation of Privilege - 權限提升]
 
     style B fill:#89f,stroke:#333,stroke-width:2px
 ```
@@ -134,11 +135,11 @@ graph TD
 
 ```mermaid
 graph TD
-    subgraph 威脅建模資訊來源
+    subgraph "威脅建模資訊來源"
         A[文件不足的舊系統]
-        B["訪談管理員 (活的文件)"]
-        C["自動化工具 (看不懂)"]
-        D["日誌分析 (資訊片面)"]
+        B[訪談管理員 活的文件]
+        C[自動化工具 看不懂]
+        D[日誌分析 資訊片面]
     end
 
     A --> B
@@ -194,16 +195,16 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph 傳統 WAF
-        A[請求] --> B{符合已知規則?};
-        B -- 是 --> C[通過];
-        B -- 否 --> D[阻擋];
+    subgraph "傳統 WAF"
+        A[請求] --> B[符合已知規則?]
+        B --> C[通過]
+        B --> D[阻擋]
     end
 
-    subgraph ML 自適應控制
-        E[請求] --> F[ML 模型分析];
-        F -- 正常模式 --> G[通過];
-        F -- 偵測到異常 --> H[動態調整策略 & 阻擋];
+    subgraph "ML 自適應控制"
+        E[請求] --> F[ML 模型分析]
+        F --> G[通過]
+        F --> H[動態調整策略 阻擋]
     end
 
     style F fill:#9f9,stroke:#333,stroke-width:2px
@@ -221,17 +222,18 @@ graph LR
 
 ```mermaid
 graph TD
-    subgraph 單因子驗證
-        A[攻擊者] -- 竊取密碼 --> B(登入成功);
-        style B fill:#c00,stroke:#fff,stroke-width:2px
+    subgraph "單因子驗證"
+        A[攻擊者] --> B[登入成功]
     end
 
-    subgraph 多因子驗證 (MFA)
-        C[攻擊者] -- 竊取密碼 --> D{第一道門: 密碼驗證};
-        D -- 通過 --> E{第二道門: 手機驗證碼?};
-        E -- 失敗 --> F(登入被阻擋);
-        style F fill:#9f9,stroke:#333,stroke-width:2px
+    subgraph "多因子驗證 MFA"
+        C[攻擊者] --> D[第一道門: 密碼驗證]
+        D --> E[第二道門: 手機驗證碼?]
+        E --> F[登入被阻擋]
     end
+
+    style B fill:#c00,stroke:#fff,stroke-width:2px
+    style F fill:#9f9,stroke:#333,stroke-width:2px
 ```
 
 #### 13. STRIDE 在物聯網/實體系統中的應用

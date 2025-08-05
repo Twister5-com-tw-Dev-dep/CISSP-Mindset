@@ -48,31 +48,30 @@
 
 ```mermaid
 graph TD
-    subgraph "實體伺服器 (由供應商管理)"
-        direction LR
+    subgraph "實體伺服器 由供應商管理"
         subgraph "租戶 A 的函式執行"
-            style TenantA fill:#BAFFC9,stroke:#333,stroke-width:2px
             A1[函式實例 1]
             A2[記憶體空間]
         end
 
         subgraph "租戶 B 的函式執行"
-            style TenantB fill:#FFB3BA,stroke:#333,stroke-width:2px
             B1[函式實例 2]
             B2[記憶體空間]
         end
 
-        Isolator{強力隔離層<br>(沙箱/虛擬化)}
+        Isolator[強力隔離層<br/>沙箱虛擬化]
     end
 
     A1 --> Isolator
     B1 --> Isolator
 
-    A1 -- X --> B2
-    B1 -- X --> A2
+    A1 -.X.-> B2
+    B1 -.X.-> A2
 
-    classDef TenantA fill:#e0f2e0,stroke:#555,stroke-width:2px;
-    classDef TenantB fill:#ffe0e0,stroke:#555,stroke-width:2px;
+    style A1 fill:#BAFFC9,stroke:#333,stroke-width:2px
+    style A2 fill:#BAFFC9,stroke:#333,stroke-width:2px
+    style B1 fill:#FFB3BA,stroke:#333,stroke-width:2px
+    style B2 fill:#FFB3BA,stroke:#333,stroke-width:2px
 ```
 
 ## 主題二：資料中心實體安全與選址
@@ -114,17 +113,17 @@ graph TD
 
 ```mermaid
 graph TD
-    A[市電電網] --> B{自動轉換開關 (ATS)};
-    C[備用發電機] --> B;
-    B --> D[UPS 不斷電系統];
-    D --> E[伺服器機櫃];
+    A[市電電網] --> B[自動轉換開關 ATS]
+    C[備用發電機] --> B
+    B --> D[UPS 不斷電系統]
+    D --> E[伺服器機櫃]
 
     subgraph "正常情況"
-        A -- 主要電力 --> B;
+        A --> B
     end
     subgraph "市電中斷時"
-        A -.-> B;
-        C -- 自動啟動並供電 --> B;
+        A -.-> B
+        C --> B
     end
 ```
 
