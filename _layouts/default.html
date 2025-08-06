@@ -12,282 +12,152 @@
       content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
     />
 
-    <!-- Bootstrap CSS -->
+    <!-- SEO 標籤 -->
+    <meta
+      name="keywords"
+      content="CISSP, CCSP, 雲端安全, 資訊安全, 認證考試, 學習資源"
+    />
+    <meta
+      name="author"
+      content="{{ site.author | default: 'CISSP Mindset' }}"
+    />
+    <meta
+      property="og:title"
+      content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+    />
+    <meta
+      property="og:description"
+      content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+    <!-- 字體 -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome -->
+
+    <!-- 圖示 -->
     <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
     />
-    <!-- Prism.js for syntax highlighting -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
-      rel="stylesheet"
-    />
-    <!-- Mermaid.js -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
-    <style>
-      :root {
-        --primary-color: #2c3e50;
-        --secondary-color: #3498db;
-        --accent-color: #e74c3c;
-        --text-color: #2c3e50;
-        --bg-color: #ffffff;
-        --sidebar-bg: #f8f9fa;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--bg-color);
-      }
-
-      .navbar-brand {
-        font-weight: bold;
-        color: var(--primary-color) !important;
-      }
-
-      .sidebar {
-        background-color: var(--sidebar-bg);
-        min-height: 100vh;
-        padding: 20px;
-        border-right: 1px solid #dee2e6;
-      }
-
-      .sidebar .nav-link {
-        color: var(--text-color);
-        padding: 8px 16px;
-        margin: 2px 0;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-      }
-
-      .sidebar .nav-link:hover {
-        background-color: var(--secondary-color);
-        color: white;
-      }
-
-      .sidebar .nav-link.active {
-        background-color: var(--accent-color);
-        color: white;
-      }
-
-      .main-content {
-        padding: 30px;
-      }
-
-      .page-header {
-        border-bottom: 3px solid var(--secondary-color);
-        padding-bottom: 15px;
-        margin-bottom: 30px;
-      }
-
-      .content-card {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        margin-bottom: 30px;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: var(--primary-color);
-        margin-top: 30px;
-        margin-bottom: 15px;
-      }
-
-      h1 {
-        border-bottom: 3px solid var(--secondary-color);
-        padding-bottom: 10px;
-      }
-
-      h2 {
-        border-bottom: 2px solid var(--secondary-color);
-        padding-bottom: 8px;
-      }
-
-      h3 {
-        color: var(--accent-color);
-      }
-
-      .mermaid {
-        text-align: center;
-        margin: 20px 0;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-      }
-
-      pre {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 6px;
-        padding: 15px;
-        overflow-x: auto;
-      }
-
-      code {
-        background-color: #f1f3f4;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-size: 0.9em;
-      }
-
-      blockquote {
-        border-left: 4px solid var(--secondary-color);
-        padding-left: 20px;
-        margin: 20px 0;
-        font-style: italic;
-        background-color: #f8f9fa;
-        padding: 15px;
-        border-radius: 0 6px 6px 0;
-      }
-
-      .table {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .table thead th {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-      }
-
-      .footer {
-        background-color: var(--primary-color);
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 50px;
-      }
-
-      @media (max-width: 768px) {
-        .sidebar {
-          min-height: auto;
-          border-right: none;
-          border-bottom: 1px solid #dee2e6;
-        }
-
-        .main-content {
-          padding: 20px 15px;
+    <!-- 結構化資料 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ site.url }}/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
         }
       }
-    </style>
-
-    {% seo %}
+    </script>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{{ site.baseurl }}/">
+    <!-- 導航欄 -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="{{ '/' | relative_url }}" class="nav-logo">
           <i class="fas fa-shield-alt"></i> {{ site.title }}
         </a>
+
+        <ul class="nav-menu">
+          <li><a href="{{ '/' | relative_url }}" class="nav-link">首頁</a></li>
+          <li>
+            <a href="{{ '/ccsp/' | relative_url }}" class="nav-link">CCSP</a>
+          </li>
+          <li>
+            <a href="{{ '/domain3/' | relative_url }}" class="nav-link"
+              >Domain 3</a
+            >
+          </li>
+          <li>
+            <a href="{{ '/domain5/' | relative_url }}" class="nav-link"
+              >Domain 5</a
+            >
+          </li>
+          <li>
+            <a href="{{ '/blog/' | relative_url }}" class="nav-link">部落格</a>
+          </li>
+          <li>
+            <a href="{{ '/about/' | relative_url }}" class="nav-link">關於</a>
+          </li>
+        </ul>
+
+        <!-- 行動裝置選單按鈕 -->
         <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+          id="menu-toggle"
+          class="mobile-menu-toggle"
+          aria-label="切換選單"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ site.baseurl }}/">首頁</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ site.baseurl }}/ccsp/">CCSP</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ site.baseurl }}/domain3/"
-                >Domain 3</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ site.baseurl }}/domain5/"
-                >Domain 5</a
-              >
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Sidebar -->
-        <div class="col-md-3 col-lg-2 sidebar">
-          <h5 class="mb-3">目錄</h5>
-          <nav class="nav flex-column">
-            <a class="nav-link" href="{{ site.baseurl }}/">
-              <i class="fas fa-home"></i> 首頁
-            </a>
-            <a class="nav-link" href="{{ site.baseurl }}/ccsp/">
-              <i class="fas fa-cloud"></i> CCSP 雲端安全
-            </a>
-            <a class="nav-link" href="{{ site.baseurl }}/domain3/">
-              <i class="fas fa-cogs"></i> Domain 3 - 安全架構
-            </a>
-            <a class="nav-link" href="{{ site.baseurl }}/domain5/">
-              <i class="fas fa-tools"></i> Domain 5 - 營運管理
-            </a>
-          </nav>
-        </div>
+    <!-- 主要內容 -->
+    <main>{{ content }}</main>
 
-        <!-- Main Content -->
-        <div class="col-md-9 col-lg-10 main-content">
-          <div class="content-card">
-            {% if page.title %}
-            <div class="page-header">
-              <h1>{{ page.title }}</h1>
-              {% if page.description %}
-              <p class="lead">{{ page.description }}</p>
-              {% endif %}
-            </div>
-            {% endif %} {{ content }}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
+    <!-- 頁腳 -->
     <footer class="footer">
       <div class="container">
-        <p>
-          &copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights
-          reserved.
-        </p>
-        <p>CCSP 雲端安全認證學習資源</p>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3><i class="fas fa-shield-alt"></i> {{ site.title }}</h3>
+            <p>專業的 CISSP 和 CCSP 認證學習資源平台</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>快速連結</h4>
+            <ul>
+              <li><a href="{{ '/ccsp/' | relative_url }}">CCSP 學習</a></li>
+              <li><a href="{{ '/domain3/' | relative_url }}">Domain 3</a></li>
+              <li><a href="{{ '/domain5/' | relative_url }}">Domain 5</a></li>
+              <li><a href="{{ '/blog/' | relative_url }}">部落格</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>聯絡我們</h4>
+            <ul>
+              <li><i class="fas fa-envelope"></i> {{ site.email }}</li>
+              <li>
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/{{ site.github_username }}"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. 保留所有權利。
+          </p>
+          <p>本網站僅供學習參考，不構成任何認證建議。</p>
+        </div>
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Prism.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- JavaScript -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
-    <!-- Initialize Mermaid -->
-    <script>
-      mermaid.initialize({
-        startOnLoad: true,
-        theme: "default",
-        flowchart: {
-          useMaxWidth: true,
-          htmlLabels: true,
-        },
-      });
-    </script>
+    <!-- 額外的頁面特定 JavaScript -->
+    {% if page.scripts %} {% for script in page.scripts %}
+    <script src="{{ script | relative_url }}"></script>
+    {% endfor %} {% endif %}
   </body>
 </html>

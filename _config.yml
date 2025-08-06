@@ -1,12 +1,26 @@
 # Site settings
 title: CISSP Mindset
-email: your-email@domain.com
+email: contact@cissp.dennisleehappy.org
 description: >- # this means to ignore newlines until "baseurl:"
-  CISSP Mindset - Comprehensive study materials and resources for CISSP certification
+  CISSP Mindset - 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的學習指南、模擬試題和實戰案例分析
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://cissp.dennisleehappy.org" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: cisspmindset
+github_username: twister5-com-tw-dev-dep
+author: CISSP Mindset Team
+
+# SEO 設定
+lang: zh-TW
+timezone: Asia/Taipei
+google_analytics: # 添加您的 Google Analytics ID
+google_analytics_anonymize_ip: true
+
+# 社交媒體設定
+social:
+  name: CISSP Mindset
+  links:
+    - https://github.com/twister5-com-tw-dev-dep
+    - https://twitter.com/cisspmindset
 
 # Build settings
 markdown: kramdown
@@ -74,5 +88,32 @@ jekyll-archives:
     category: archive-category
     tag: archive-tag
   permalinks:
-    category: '/category/:name/'
-    tag: '/tag/:name/'
+    category: "/category/:name/"
+    tag: "/tag/:name/"
+
+# 預設設定
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "CISSP Mindset Team"
+  - scope:
+      path: ""
+      type: "ccsp"
+    values:
+      layout: "page"
+      author: "CISSP Mindset Team"
+  - scope:
+      path: ""
+      type: "domain3"
+    values:
+      layout: "page"
+      author: "CISSP Mindset Team"
+  - scope:
+      path: ""
+      type: "domain5"
+    values:
+      layout: "page"
+      author: "CISSP Mindset Team"
