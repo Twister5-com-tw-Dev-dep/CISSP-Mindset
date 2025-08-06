@@ -4,6 +4,27 @@ title: CISSP Mindset - 雲端安全認證學習資源
 description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的學習指南、模擬試題和實戰案例分析
 ---
 
+<!-- 導航欄 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <i class="fas fa-shield-alt"></i>
+      CISSP Mindset
+    </a>
+    <ul class="nav-menu">
+      <li><a href="#learning-resources" class="nav-link">學習資源</a></li>
+      <li><a href="#features" class="nav-link">特色功能</a></li>
+      <li><a href="#updates" class="nav-link">最新更新</a></li>
+      <li><a href="#stats" class="nav-link">統計數據</a></li>
+    </ul>
+    <button class="mobile-menu-toggle" aria-label="切換選單">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
 <!-- 英雄區域 -->
 <section class="hero">
   <div class="container">
@@ -57,10 +78,10 @@ description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的
       <p>深入探討安全架構設計、模型框架和評估標準，建立堅實的安全基礎。</p>
       <ul>
         <li><a href="/domain3/">安全架構概覽</a></li>
-        <li><a href="/domain3/1.Models--Frameworks.md">模型與框架</a></li>
-        <li><a href="/domain3/6.Cryptography.md">密碼學基礎</a></li>
+        <li><a href="/domain3/1.Models--Frameworks/">模型與框架</a></li>
+        <li><a href="/domain3/6.Cryptography/">密碼學基礎</a></li>
         <li>
-          <a href="/domain3/7.Digital-Signatures--Certificates.md"
+          <a href="/domain3/7.Digital-Signatures--Certificates/"
             >數位簽章與憑證</a
           >
         </li>
@@ -76,7 +97,7 @@ description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的
       <p>實用的安全運營管理策略和最佳實踐指南，讓理論轉化為實戰能力。</p>
       <ul>
         <li><a href="/domain5/">運營管理概覽</a></li>
-        <li><a href="/domain5/faq.md">常見問題</a></li>
+        <li><a href="/domain5/faq/">常見問題</a></li>
         <li><a href="/domain5/case-studies/">實戰案例分析</a></li>
         <li><a href="/domain5/best-practices/">最佳實踐指南</a></li>
       </ul>
@@ -88,7 +109,7 @@ description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的
   </section>
 
   <!-- 特色功能 -->
-  <section class="features-section">
+  <section id="features" class="features-section">
     <h2 class="section-title">為什麼選擇 CISSP Mindset？</h2>
     <div class="features-grid">
       <div class="feature-card">
@@ -126,8 +147,30 @@ description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的
     </div>
   </section>
 
+  <!-- 統計數據 -->
+  <section id="stats" class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">學習資源</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">模擬試題</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">實戰案例</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">通過率</div>
+      </div>
+    </div>
+  </section>
+
   <!-- 最新更新 -->
-  <section class="updates-section">
+  <section id="updates" class="updates-section">
     <h2 class="section-title">最新更新</h2>
     <div class="updates-list">
       <div class="update-item">
@@ -157,28 +200,6 @@ description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的
     </div>
   </section>
 
-  <!-- 統計數據 -->
-  <section class="stats-section">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">學習資源</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">1000+</div>
-        <div class="stat-label">模擬試題</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">實戰案例</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">95%</div>
-        <div class="stat-label">通過率</div>
-      </div>
-    </div>
-  </section>
-
   <!-- 狀態指示器 -->
   <div class="status">
     <h3><i class="fas fa-check-circle"></i> 部署狀態</h3>
@@ -188,62 +209,45 @@ description: 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的
   </div>
 </div>
 
-<style>
-  /* 統計數據樣式 */
-  .stats-section {
-    margin: var(--space-3xl) 0;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-xl);
-  }
-
-  .stat-card {
-    text-align: center;
-    padding: var(--space-xl);
-    background: var(--bg-primary);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-light);
-    transition: all 0.3s ease;
-  }
-
-  .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    margin-bottom: var(--space-sm);
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .stat-label {
-    color: var(--text-secondary);
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-
-  /* 響應式設計 */
-  @media (max-width: 768px) {
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-    }
-  }
-</style>
+<!-- 頁腳 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>關於我們</h3>
+        <p>專業的 CISSP 和 CCSP 認證學習平台，致力於提供最優質的學習資源和考試準備工具。</p>
+      </div>
+      <div class="footer-section">
+        <h4>學習資源</h4>
+        <ul>
+          <li><a href="/ccsp/">CCSP 學習指南</a></li>
+          <li><a href="/domain3/">安全架構</a></li>
+          <li><a href="/domain5/">安全運營</a></li>
+          <li><a href="/practice/">模擬試題</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>支援</h4>
+        <ul>
+          <li><a href="/faq/">常見問題</a></li>
+          <li><a href="/contact/">聯絡我們</a></li>
+          <li><a href="/privacy/">隱私政策</a></li>
+          <li><a href="/terms/">使用條款</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>社群</h4>
+        <ul>
+          <li><a href="https://github.com/twister5-com-tw-dev-dep">GitHub</a></li>
+          <li><a href="https://twitter.com/cisspmindset">Twitter</a></li>
+          <li><a href="/blog/">部落格</a></li>
+          <li><a href="/forum/">討論區</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 CISSP Mindset. 保留所有權利。</p>
+      <p>專業的雲端安全認證學習平台</p>
+    </div>
+  </div>
+</footer>

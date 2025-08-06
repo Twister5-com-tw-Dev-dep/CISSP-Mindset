@@ -4,7 +4,7 @@ email: contact@cissp.dennisleehappy.org
 description: >- # this means to ignore newlines until "baseurl:"
   CISSP Mindset - 專業的 CISSP 和 CCSP 認證學習資源平台，提供完整的學習指南、模擬試題和實戰案例分析
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://cissp.dennisleehappy.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # 留空以使用 GitHub Pages 的預設 URL
 twitter_username: cisspmindset
 github_username: twister5-com-tw-dev-dep
 author: CISSP Mindset Team
@@ -25,13 +25,6 @@ social:
 # Build settings
 markdown: kramdown
 theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-archives
-  - jekyll-include-cache
 
 # Exclude files and directories to avoid conflicts
 exclude:
@@ -45,23 +38,8 @@ exclude:
   - package.json
   - package-lock.json
   - .DS_Store
-  - Domain3
-  - Domain5
-  - CCSP
-  - interview
-  - "*.md"
-  - "*.html"
-
-# Include only necessary directories
-include:
-  - _layouts
-  - _posts
-  - _pages
-  - _ccsp
-  - _domain3
-  - _domain5
-  - assets
-  - index.html
+  - README.md
+  - DEPLOYMENT.md
 
 # Collections
 collections:
