@@ -38,6 +38,7 @@
     "markdown-it": "^14.3.3",
     "minimatch": "^5.1.8",
     "linkify-it": "^5.0.2",
-    "picomatch": "^2.3.2"
+    "picomatch": "^2.3.2",
+    "ws": "^8.21.0"
   }
 }
