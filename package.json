@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/your-username/cissp-mindset/issues"
   },
-  "homepage": "https://your-username.github.io/cissp-mindset"
+  "homepage": "https://your-username.github.io/cissp-mindset",
+  "overrides": {
+    "liquidjs": "^10.27.2"
+  }
 }
