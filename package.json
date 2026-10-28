@@ -32,6 +32,7 @@
   "homepage": "https://your-username.github.io/cissp-mindset",
   "overrides": {
     "liquidjs": "^10.27.2",
-    "handlebars": "^4.7.10"
+    "handlebars": "^4.7.10",
+    "brace-expansion": "^2.1.7"
   }
 }
