@@ -29,5 +29,16 @@
   "bugs": {
     "url": "https://github.com/your-username/cissp-mindset/issues"
   },
-  "homepage": "https://your-username.github.io/cissp-mindset"
+  "homepage": "https://your-username.github.io/cissp-mindset",
+  "overrides": {
+    "liquidjs": "^10.27.2",
+    "handlebars": "^4.7.10",
+    "brace-expansion": "^2.1.7",
+    "js-yaml": "^3.15.2",
+    "markdown-it": "^14.3.3",
+    "minimatch": "^11.0.1",
+    "linkify-it": "^5.0.2",
+    "picomatch": "^2.3.2",
+    "ws": "^8.21.0"
+  }
 }
